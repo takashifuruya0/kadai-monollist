@@ -94,7 +94,7 @@ p.item-title {
   display: table-cell;
   vertical-align: middle;
   text-align: center;
-  color #777;
+  color: #777;
 }
 
 .user-profile .status ul li:last-child {
