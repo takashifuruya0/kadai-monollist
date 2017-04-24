@@ -13,4 +13,7 @@ Rails.application.routes.draw do
   post "login", to: "sessions#create"
   delete "logout", to: "sessions#destroy"
 
+# items
+  resources :items, only: [:new]
+
 end
