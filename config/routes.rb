@@ -3,4 +3,7 @@ Rails.application.routes.draw do
 
 # toppages
 	root to: "toppages#index"
+
+  get "signup", to: "users#new"
+  resources :users, only: [:show,  :new, :create]
 end
