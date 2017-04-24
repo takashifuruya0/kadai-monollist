@@ -1,0 +1,2 @@
+class Hav < Ownership
+end

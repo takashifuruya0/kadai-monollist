@@ -24,4 +24,20 @@ class User < ApplicationRecord
   def want?(item)
     self.want_items.include?(item)
   end
+  
+  has_many :havs
+  has_many :hav_items, through: :havs, class_name: "Item", source: :item
+
+  def hav(item)
+    self.havs.find_or_create_by(item_id: item.id)
+  end
+
+  def unhav(item)
+    hav = self.havs.find_by(item_id: item.id)
+    hav.destroy if hav
+  end
+
+  def hav?(item)
+    self.hav_items.include?(item)
+  end
 end

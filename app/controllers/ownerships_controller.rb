@@ -13,6 +13,11 @@ class OwnershipsController < ApplicationController
       flash[:success] = "Add the itme to Want"
     end
 
+    if params[:type] == "Hav"
+      current_user.hav(@item)
+      flash[:success] = "Add the itme to Have"
+    end
+
     redirect_back(fallback_location: root_path)
   end
 
@@ -22,6 +27,11 @@ class OwnershipsController < ApplicationController
     if params[:type] == "Want"
       current_user.unwant(@item)
       flash[:success] = "Remove the item from Want"
+    end
+    
+    if params[:type] == "Hav"
+      current_user.unhav(@item)
+      flash[:success] = "Remove the item from Have"
     end
 
     redirect_back(fallback_location: root_path)
